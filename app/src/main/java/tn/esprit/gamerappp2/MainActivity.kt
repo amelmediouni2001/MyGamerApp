@@ -10,9 +10,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.gamerappp2.ui.screens.LoginScreen
+import tn.esprit.gamerappp2.screens.LoginScreen
+
 import tn.esprit.gamerappp2.ui.theme.GamerAppP2Theme
 import tn.esprit.gamerappp2.screens.SplashScreen
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,7 @@ class MainActivity : ComponentActivity() {
                         startDestination = "splash"  // Start with splash
                     ) {
                         composable("splash") { SplashScreen(navController) }
-                       composable("login") { LoginScreen(navController)}
+                       composable("login") { LoginScreen(navController) }
 
                         // We'll add more screens later (e.g., "signup")
                     }

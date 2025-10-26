@@ -66,7 +66,10 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3:1.3.0")
-
+    // Material icons (filled/outlined/rounded/extended) used by some screens (Visibility, VisibilityOff, etc.)
+    implementation("androidx.compose.material:material-icons-extended")
+    // Material icons (filled/outlined/rounded/extended) used by some screens (Visibility, VisibilityOff, etc.)
+    implementation("androidx.compose.material:material-icons-extended")
     // Navigation for Compose
     implementation("androidx.navigation:navigation-compose:2.7.6")
 }
