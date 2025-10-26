@@ -17,7 +17,7 @@ import tn.esprit.gamerappp2.R
 fun SplashScreen(navController: NavController) {
     // Auto-navigate after 2 seconds
     LaunchedEffect(Unit) {
-        delay(10000L)  // 2 seconds
+        delay(2000L)  // 2 seconds
         navController.navigate("login") {
             popUpTo("splash") { inclusive = true }  // Remove splash from back stack
         }

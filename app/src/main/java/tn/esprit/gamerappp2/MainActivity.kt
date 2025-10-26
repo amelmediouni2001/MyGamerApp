@@ -1,7 +1,6 @@
 package tn.esprit.gamerappp2
 
 import android.os.Bundle
-import android.window.SplashScreen
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.gamerappp2.ui.screens.LoginScreen
+import tn.esprit.gamerappp2.ui.theme.GamerAppP2Theme
 import tn.esprit.gamerappp2.screens.SplashScreen
-import tn.esprit.gamerappp2.ui.theme.GamerAppP2Theme  // Your theme import
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +29,8 @@ class MainActivity : ComponentActivity() {
                         startDestination = "splash"  // Start with splash
                     ) {
                         composable("splash") { SplashScreen(navController) }
-//                        composable("login") { LoginScreen(navController) }
+                       composable("login") { LoginScreen(navController)}
+
                         // We'll add more screens later (e.g., "signup")
                     }
                 }
