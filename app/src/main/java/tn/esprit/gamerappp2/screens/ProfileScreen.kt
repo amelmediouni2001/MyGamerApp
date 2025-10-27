@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -43,14 +44,14 @@ fun ProfileScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Profile") },
+                title = { Text("Store") },
                 actions = {
                     IconButton(onClick = {
                         scope.launch {
-                            snackbarHostState.showSnackbar("Coming soon!")  // Bell click Snackbar
+                            snackbarHostState.showSnackbar("Coming soon!")  // Cart click Snackbar
                         }
                     }) {
-                        Icon(Icons.Default.Notifications, contentDescription = "Notifications")
+                        Icon(Icons.Default.Notifications, contentDescription = "Notifications", tint = Color.White)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(

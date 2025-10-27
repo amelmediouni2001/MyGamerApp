@@ -45,10 +45,10 @@ fun NewsScreen(navController: NavController) {
                 actions = {
                     IconButton(onClick = {
                         scope.launch {
-                            snackbarHostState.showSnackbar("Coming soon!")  // Toolbar click Snackbar
+                            snackbarHostState.showSnackbar("Coming soon!")  // Cart click Snackbar
                         }
                     }) {
-                        Icon(Icons.Default.Notifications, contentDescription = "Notifications")
+                        Icon(Icons.Default.Notifications, contentDescription = "Notifications", tint = Color.White)
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -79,7 +79,8 @@ fun NewsScreen(navController: NavController) {
                             }
                         },
                         icon = { Icon(pair.second, contentDescription = pair.first) },
-                        label = { Text(pair.first) }
+                        label = { Text(pair.first)
+                        }
                     )
                 }
             }

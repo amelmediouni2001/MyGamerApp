@@ -31,7 +31,11 @@ fun AppBar(
                     }
                     onCartClick()
                 }) {
-                    Icon(Icons.Default.ShoppingCart, contentDescription = "Cart")
+                    Icon(
+                        Icons.Default.ShoppingCart,
+                        contentDescription = "Cart",
+                        tint = Color.White  // Set ShoppingCart icon to white
+                    )
                 }
             }
             IconButton(onClick = {
