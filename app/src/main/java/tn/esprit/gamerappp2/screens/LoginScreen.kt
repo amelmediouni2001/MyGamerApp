@@ -266,6 +266,7 @@ fun LoginScreen(navController: NavController) {
             }
         }
     }
+
 }
 
 
@@ -273,3 +274,4 @@ fun LoginScreen(navController: NavController) {
 fun isValidEmail(email: String): Boolean {
     return Patterns.EMAIL_ADDRESS.matcher(email).matches()
 }
+

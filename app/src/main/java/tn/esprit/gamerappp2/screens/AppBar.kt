@@ -4,8 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.runtime.rememberCoroutineScope
@@ -41,7 +40,11 @@ fun AppBar(
                 }
                 onNotificationClick()
             }) {
-                Icon(Icons.Default.Notifications, contentDescription = "Notifications")
+                Icon(
+                    Icons.Default.Notifications,
+                    contentDescription = "Notifications",
+                    tint = Color.White  // Makes icon white
+                )
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(

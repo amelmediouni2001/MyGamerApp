@@ -21,6 +21,9 @@ import tn.esprit.gamerappp2.R
 import androidx.compose.material.icons.filled.Newspaper
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import tn.esprit.gamerappp2.ui.theme.GamerAppP2Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -126,5 +129,13 @@ fun NewsScreen(navController: NavController) {
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun NewsScreenPreview() {
+    GamerAppP2Theme {
+        tn.esprit.gamerappp2.screens.NewsScreen(rememberNavController())
     }
 }

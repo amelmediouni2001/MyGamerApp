@@ -17,11 +17,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import tn.esprit.gamerappp2.R
+import tn.esprit.gamerappp2.ui.theme.GamerAppP2Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -136,5 +139,14 @@ fun StoreScreen(navController: NavHostController) {
                 }
             }
         }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun StoreScreenPreview() {
+    GamerAppP2Theme {
+        tn.esprit.gamerappp2.screens.StoreScreen(rememberNavController())
     }
 }
