@@ -146,10 +146,11 @@ fun LoginScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(24.dp))
 
                 // Login Button
+
                 Button(
                     onClick = {
                         if (validateFields()) {
-                            navController.navigate("home")
+                            navController.navigate("bottom_nav")  // Enters sub-graph → News start
                         } else {
                             scope.launch {
                                 snackbarHostState.showSnackbar("You have some errors in your inputs!")
@@ -186,7 +187,7 @@ fun LoginScreen(navController: NavController) {
                             modifier = Modifier.clickable { rememberMe = !rememberMe }
                         )
                     }
-                    TextButton(onClick = { navController.navigate("forgot") }) {
+                    TextButton(onClick = { navController.navigate("forgotPassword") }) {
                         Text("Forgot Password?", color = MaterialTheme.colorScheme.primary)
                     }
                 }
