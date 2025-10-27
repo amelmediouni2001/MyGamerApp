@@ -53,11 +53,12 @@ class MainActivity : ComponentActivity() {
                         composable("forgotPassword") { ForgotPasswordScreen(navController) }
                         composable("OTPValidation") { OTPValidationScreen(navController, "1234") }
                         composable("reset_password") { ResetPasswordScreen(navController) }
+//                        composable("bottom_nav") {BottomNavBar(navController)}
 
                         // Bottom Nav Sub-Graph (FIXED: navigation DSL, no nesting conflict)
                         navigation(
                             route = "bottom_nav",
-                            startDestination = "profile"
+                            startDestination = "news"
                         ) {
                             composable("news") { NewsScreen(navController) }
                             composable("store") { StoreScreen(navController) }

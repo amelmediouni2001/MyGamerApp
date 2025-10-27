@@ -10,12 +10,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewsScreen(navController: NavController) {
+fun NewsScreen(navController: NavHostController) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -44,6 +44,9 @@ fun NewsScreen(navController: NavController) {
                     titleContentColor = Color.White
                 )
             )
+        },
+        bottomBar = {
+            BottomNavBar(navController)  // Called BottomNavBar here
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
     ) { padding ->
