@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -28,6 +29,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 import tn.esprit.gamerappp2.R  // Your R import
+import tn.esprit.gamerappp2.utils.clearUserData
+import tn.esprit.gamerappp2.utils.loadUserData
+import tn.esprit.gamerappp2.utils.saveUserData
 
 @Composable
 fun LoginScreen(navController: NavController) {
@@ -39,6 +43,15 @@ fun LoginScreen(navController: NavController) {
     var rememberMe by remember { mutableStateOf(false) }
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+    // NEW: Load on start
+    val context = LocalContext.current
+    LaunchedEffect(Unit) {
+        loadUserData(context)?.let { (savedEmail, savedPassword) ->
+            email = savedEmail
+            password = savedPassword
+            rememberMe = true
+        }
+    }
 
     fun validateFields(): Boolean {
         emailError = if (email.isBlank()) "Must not be empty!"
@@ -49,7 +62,15 @@ fun LoginScreen(navController: NavController) {
         else if (password.length < 6) "Password must be at least 6 characters"
         else ""
 
-        return emailError.isEmpty() && passwordError.isEmpty()
+        val isValid = emailError.isEmpty() && passwordError.isEmpty()
+        if (isValid) {
+            if (rememberMe) {
+                saveUserData(context, email, password)  // Save if Remember Me checked
+            } else {
+                clearUserData(context)  // Clear if not checked
+            }
+        }
+        return isValid
     }
 
     Scaffold(
@@ -146,7 +167,6 @@ fun LoginScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(24.dp))
 
                 // Login Button
-
                 Button(
                     onClick = {
                         if (validateFields()) {
@@ -266,12 +286,8 @@ fun LoginScreen(navController: NavController) {
             }
         }
     }
-
 }
-
-
 
 fun isValidEmail(email: String): Boolean {
     return Patterns.EMAIL_ADDRESS.matcher(email).matches()
 }
-
